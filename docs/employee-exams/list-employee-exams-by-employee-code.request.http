@@ -1,6 +1,6 @@
 
 ### Get Authenticated User Request
 # @name authUser
-GET  http://localhost:8000/api/question-banks/section/1/5
+GET  http://localhost:8000/api/employee-exams/1180
 Content-Type: application/json
 Accept: application/json
