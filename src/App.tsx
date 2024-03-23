@@ -1,11 +1,11 @@
-import AuthenticatedTemplate from 'authenticated_pages/AuthenticatedTemplate';
-import HomePage from 'authenticated_pages/Info/home/HomePage';
-import ExamPaper from 'authenticated_pages/exam-paper/ExamPaper';
 import AuthUserContext, {
   AuthUserContextType,
 } from 'common/context/AuthUserContext';
 import { AnimatePresence } from 'framer-motion';
+import AuthenticatedTemplate from 'pages/AuthenticatedTemplate';
 import PublicTemplate from 'pages/PublicTemplate';
+import ExamPaper from 'pages/exam-paper/ExamPaper';
+import HomePage from 'pages/home/HomePage';
 import LoginPage from 'pages/login/LoginPage';
 import { useContext } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';

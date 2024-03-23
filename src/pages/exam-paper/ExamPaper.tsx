@@ -42,7 +42,7 @@ function ExamPaper() {
   return (
     <div className="container mx-auto">
       <Loading isLoading={currentExamDataLoading || sectionDataLoading} />
-      <h1 className="p-5 text-center text-lg font-bold">Exam Paper</h1>
+      <h1 className="p-5 text-center text-3xl font-bold">Exam Paper</h1>
 
       <ExamStepDetails
         activeStep={activeStep}
