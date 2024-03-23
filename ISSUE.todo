@@ -1,0 +1,30 @@
+[x] Career empty array check or No job circulars at this moment view
+[x] Notice empty array check or No notices at this moment view
+[x] Services empty array check or No services added view
+[x] Leaders empty array check or No leaders added view
+[x] Saving Deposits empty array check or No saving deposits added view
+[x] Loans empty array check or No loans added view
+[x] Forms empty array check or No form added view
+[x] Gallery empty array check or No gallery image added view
+[x] Set default value for all settings
+[x] Update contact page with settings
+[x] Update gallery page with settings
+[x] Update header social links with settings
+[x] Update floating messenger link with settings
+[ ] Implement login, logout and handle refresh token
+[ ] Complete dashboard (api and ui)
+[ ] Implement PagesView (List, Edit, Update, Status Change (Published, Draft, Trashed), View and Super Admin can Create and Delete)
+[ ] Implement ServiceView (List, Create, Edit, Update, Status Change (Published, Draft, Trashed), View and Super Admin can Delete)
+[ ] Implement LeadersView (List, Create, Edit, Update, Status Change (Published, Draft, Trashed), View and Super Admin can Delete)
+[ ] Implement SavingDepositsView (List, Create, Edit, Update, Status Change (Published, Draft, Trashed), View and Super Admin can Delete)
+[ ] Implement LoansView (List, Create, Edit, Update, Status Change (Published, Draft, Trashed), View and Super Admin can Delete)
+[ ] Implement NoticesView (List, Create, Edit, Update, Status Change (Published, Draft, Trashed), View and Super Admin can Delete)
+[ ] Implement FormsView (List, Create, Edit, Update, Status Change (Published, Draft, Trashed), View and Super Admin can Delete)
+[ ] Implement SliderView (List, Create, Edit, Update, Status Change (Published, Draft, Trashed), View and Super Admin can Delete)
+[ ] Implement GalleryView (List, Create, Edit, Update, Status Change (Published, Draft, Trashed), View and Super Admin can Create and Delete)
+[ ] Implement UsersView (List, Create, Edit, Update, Status Change (Published, Draft, Trashed), View and Delete)
+[ ] Implement SettingsView (General Settings - Edit, Update and View)
+[ ] Implement ProfileView 
+[ ] Implement AccountSettingsView (User Info and Password Update and view) 
+[ ] Implement roles middleware to api routes
+[ ] Roles ['Super Admin (Everything)', 'Admin (Except from delete and some create)', 'Secretariat (Publish Notices)','Content Manager (Content Audit and Publish)','Content Writer (Content Create and Update)', 'Visitor (Only Lists and View)']

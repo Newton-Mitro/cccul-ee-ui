@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Andada+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Anton&family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Baloo+Da+2:wght@400;500;600;700;800&family=Cookie&family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Galada&family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&family=Hurricane&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mrs+Saint+Delafield&family=Ms+Madi&family=Noto+Serif+Bengali:wght@100;200;300;400;500;600;700;800;900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oswald:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rock+Salt&family=Sacramento&family=Sora:wght@100;200;300;400;500;600;700;800&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stalemate&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --theme-background: #f1f1f1;
+    --theme-on-background: #3f3f3f;
+    --theme-backgroundVariant: #f6fafd;
+    --theme-on-backgroundVariant: #2b2b2b;
+    --theme-primary: #222d67;
+    --theme-primaryVariant: #162742;
+    --theme-on-primary: #f3f3f3;
+    --theme-on-primaryVariant: #f3f3f3;
+    --theme-secondary: #8f407b;
+    --theme-on-secondary: #fdf1ed;
+    --theme-secondary-variant: #2b2b2b;
+    --theme-surface: #ffffff;
+    --theme-on-surface: #3b3b3b;
+    --theme-on-surfaceVariant: #2b2b2b;
+    --theme-error: #b12e06;
+    --theme-on-error: #ffffff;
+    --theme-success: #02692a;
+    --theme-on-success: #ffffff;
+    --theme-on-border: #8a8a8a;
+    --theme-on-disabled: #f3f3f3;
+  }
+
+  * {
+    scroll-behavior: smooth;
+    scrollbar-color: #0a4c95 #c2d2e4;
+    scrollbar-width: 6px;
+  }
+
+  /* Chrome, Edge, and Safari */
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--theme-background);
+    border-radius: 1px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--theme-primary);
+    border-radius: 1px;
+    border: 1px solid var(--theme-primary);
+  }
+
+  .text-sideways {
+    writing-mode: tb-rl;
+  }
+}
+
+.sidebar-menu.active {
+  @apply bg-onSurface font-semibold text-red-400;
+}
+
+.active.main-menu {
+  @apply border-b border-red-400 font-bold;
+}
+
+.ck {
+  background-color: var(--theme-on-surface) !important;
+  border-color: var(--theme-surface) !important;
+  color: var(--theme-surface) !important;
+}

@@ -1,0 +1,11 @@
+services:
+  creditsolutionfront:
+    build: .
+    container_name: creditsolutionfrontcontainer
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/app'
+      - '/home/newton/Documents/Personal/co-operative-credit-solution-ui/node_modules'
+    stdin_open: true
+    tty: true
