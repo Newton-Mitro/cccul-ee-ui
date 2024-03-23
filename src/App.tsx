@@ -1,3 +1,6 @@
+import AuthenticatedTemplate from 'authenticated_pages/AuthenticatedTemplate';
+import HomePage from 'authenticated_pages/Info/home/HomePage';
+import ExamPaper from 'authenticated_pages/exam-paper/ExamPaper';
 import AuthUserContext, {
   AuthUserContextType,
 } from 'common/context/AuthUserContext';
@@ -20,12 +23,12 @@ export default function App() {
           <Route path="/" element={<PublicTemplate />}>
             <Route index element={<LoginPage />} />
           </Route>
-          {/* {authUser && (
-              <Route path="auth" element={<AdminTemplate />}>
-                <Route path="home" element={<Home />} />
-                <Route path="users" element={<UserIndexView />} />
-              </Route>
-            )} */}
+          {authUser && (
+            <Route path="auth" element={<AuthenticatedTemplate />}>
+              <Route path="home" element={<HomePage />} />
+              <Route path="exam-paper" element={<ExamPaper />} />
+            </Route>
+          )}
         </Routes>
       </AnimatePresence>
       <ToastContainer />

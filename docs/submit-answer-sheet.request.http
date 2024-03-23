@@ -1,0 +1,29 @@
+
+### Get Authenticated User Request
+# @name authUser
+# POST http://localhost:8000/api/answer-sheets
+Content-Type: application/json
+Accept: application/json
+
+{
+  "employee_exam_id": 1,
+  "emp_code_exam_id_exam_num": "1180_1_2",
+  "exam_id": 1,
+  "employee_code": "1180",
+  "exam_num": 2,
+  "total_questions": 10,
+  "correct_answers": 1,
+  "wrong_answers": 9,
+  "submitted_answers": [
+    {
+      "employee_code": "1180",
+      "employee_exam_id": 1,
+      "exam_id": 1,
+      "question_text": "My Question Text",
+      "selected_option_text": "Selected Option Text",
+      "question_option_id": 1,
+      "correct_option_text": "Option 1",
+      "is_correct_answer": true
+    }
+  ]
+}

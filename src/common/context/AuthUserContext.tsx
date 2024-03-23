@@ -1,5 +1,5 @@
 import { useLocalStorage } from 'common/hooks/useStorage';
-import { IAuthUserModel } from 'common/interfaces/IAuthUserModel';
+import { IAuthUserModel } from 'pages/login/model/data/IAuthUserModel';
 import { createContext, useState } from 'react';
 
 export type AuthUserContextType = {

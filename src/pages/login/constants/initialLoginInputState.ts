@@ -1,4 +1,8 @@
 export const initialLoginInputState = {
-  email: '',
+  UserName: '',
   password: '',
+  errors: {
+    UserName: '',
+    password: '',
+  },
 };
