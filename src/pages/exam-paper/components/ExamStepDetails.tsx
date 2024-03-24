@@ -117,7 +117,9 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   React.useEffect(() => {
     if (activeStep !== 0) {
       executeGetQuestionsData(
-        `http://localhost:8000/api/question-banks/section/${activeStep}/5`,
+        `http://localhost:8000/api/question-banks/section/${activeStep}/${
+          section?.question_for_section ? section?.question_for_section : 5
+        }`,
         null
       );
     }
