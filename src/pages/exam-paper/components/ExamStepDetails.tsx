@@ -2,6 +2,8 @@ import Loading from 'common/components/Loading';
 import useCommand2 from 'common/hooks/useCommand2';
 import useQuery from 'common/hooks/useQuery';
 import * as React from 'react';
+import Countdown from 'react-countdown';
+import { useNavigate } from 'react-router-dom';
 import ExamCompleted from './ExamCompleted';
 import ExamQuestions from './ExamQuestions';
 
@@ -31,6 +33,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   updateOptionsState,
 }) => {
   const [activeStep, setActiveStep] = React.useState(1);
+  const navigate = useNavigate();
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -39,9 +42,16 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   const { data, status, setData, loading, error, setError, executeCommand } =
     useCommand2<any>();
 
-  console.log(section);
-
   const handleSubmit = () => {
+    let totalCorrectAns = 0;
+    optionsState?.forEach((element: any) => {
+      if (element !== undefined) {
+        if (element?.is_correct) {
+          totalCorrectAns = totalCorrectAns + 1;
+        }
+      }
+    });
+
     const mappedValues = optionsState.map((option: any) => {
       if (option !== undefined) {
         return {
@@ -55,6 +65,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
         };
       }
     });
+
     const application = {
       employee_exam_id: employee_exam_id,
       emp_code_exam_id_exam_num: emp_code_exam_id_exam_num,
@@ -62,8 +73,8 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
       employee_code: employee_code,
       exam_num: exam_num,
       total_questions: total_questions,
-      correct_answers: 1,
-      wrong_answers: 9,
+      correct_answers: totalCorrectAns,
+      wrong_answers: total_questions - totalCorrectAns,
       submitted_answers: mappedValues.filter(
         (option: any) => option !== undefined
       ),
@@ -106,11 +117,43 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
         data={data}
         handleClose={() => {
           setData(null);
+          navigate('/auth/home');
         }}
       />
-      <h1 className="pb-4 text-center text-xl">
-        {section[activeStep - 1].section_title}
-      </h1>
+      <div className="pb-4 text-center">
+        <h1 className="text-center text-xl">
+          {section[activeStep - 1].section_title}
+        </h1>
+
+        {activeStep === 1 && (
+          <Countdown
+            date={Date.now() + section[activeStep - 1].time_for_section}
+            className="text-2xl font-bold text-red-900"
+            onComplete={() => {
+              if (activeStep === sectionLength) {
+                handleSubmit();
+              } else {
+                handleNext();
+              }
+            }}
+          ></Countdown>
+        )}
+
+        {activeStep === 2 && (
+          <Countdown
+            date={Date.now() + section[activeStep - 1].time_for_section}
+            className="text-2xl font-bold text-red-900"
+            onComplete={() => {
+              if (activeStep === sectionLength) {
+                handleSubmit();
+              } else {
+                handleNext();
+              }
+            }}
+          ></Countdown>
+        )}
+      </div>
+
       {questionsData?.map((question: any, index: number) => {
         return (
           <ExamQuestions

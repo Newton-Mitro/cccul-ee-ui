@@ -16,7 +16,6 @@ const ExamQuestions: React.FC<ExamQuestionsProps> = ({
     <div className="flex flex-col ">
       <div className="py-4">
         <p>{`${index}. ${question.question_text}`}</p>
-
         <ExamOptions
           options={question?.question_options}
           updateOptionsState={updateOptionsState}

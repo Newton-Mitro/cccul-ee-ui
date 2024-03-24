@@ -70,7 +70,7 @@ function ExamPaper() {
           currentExamDataLoading || sectionDataLoading || examCountDataLoading
         }
       />
-      <h1 className="p-5 text-center text-3xl font-bold">Exam Paper</h1>
+      <h1 className="pt-5 text-center text-3xl font-bold">Exam Paper</h1>
       {sectionData && authUser && examCountData && currentExamData && (
         <ExamStepDetails
           section={sectionData}

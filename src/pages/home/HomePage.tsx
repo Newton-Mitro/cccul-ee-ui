@@ -84,7 +84,7 @@ function HomePage() {
       <CurrentExam
         currentExam={currentExamData}
         canTakeExam={
-          examCountData?.count < currentExamData?.max_exam_can_take
+          examCountData?.count <= currentExamData?.max_exam_can_take
             ? false
             : true
         }
