@@ -16,9 +16,10 @@ const SingleOption: React.FC<SingleOptionProps> = ({
       <input
         type="radio"
         id={option?.question_bank_id + index}
-        name={option?.question_bank_id + index}
+        name={option?.question_bank_id}
         onChange={() => {
           updateOptionsState(option, option?.question_bank_id);
+          console.log(option);
         }}
       />
       <label htmlFor="Choice1">{option?.option_text}</label>

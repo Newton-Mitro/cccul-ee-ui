@@ -48,19 +48,19 @@ function HomePage() {
   } = useQuery<any>();
 
   useEffect(() => {
-    executeGetCurrentExam('http://172.16.0.3:8080/api/active_exam', null);
-    executeGetSectionData('http://172.16.0.3:8080/api/question-sections', null);
+    executeGetCurrentExam('http://localhost:8000/api/active_exam', null);
+    executeGetSectionData('http://localhost:8000/api/question-sections', null);
   }, []);
 
   useEffect(() => {
     if (currentExamData) {
       executeGetExamCount(
-        `http://172.16.0.3:8080/api/employee-exams/count/${authUser?.EmployeeCode}/${currentExamData.id}`,
+        `http://localhost:8000/api/employee-exams/count/${authUser?.EmployeeCode}/${currentExamData.id}`,
         null
       );
 
       executeGetPreviousExam(
-        `http://172.16.0.3:8080/api/employee-exams/${authUser?.EmployeeCode}`,
+        `http://localhost:8000/api/employee-exams/${authUser?.EmployeeCode}`,
         null
       );
     }

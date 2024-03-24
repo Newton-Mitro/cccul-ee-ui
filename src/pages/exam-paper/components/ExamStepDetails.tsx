@@ -61,7 +61,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
           question_bank_id: option?.question_bank_id,
           question_option_id: option?.id,
           option_text: option?.option_text,
-          is_correct: true,
+          is_correct: option?.is_correct,
         };
       }
     });
@@ -81,7 +81,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
     };
 
     executeCommand(
-      'http://172.16.0.3:8080/api/answer-sheets',
+      'http://localhost:8000/api/answer-sheets',
       JSON.stringify(application),
       {
         headers: {
@@ -103,7 +103,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   React.useEffect(() => {
     if (activeStep !== 0) {
       executeGetQuestionsData(
-        `http://172.16.0.3:8080/api/question-banks/section/${activeStep}/5`,
+        `http://localhost:8000/api/question-banks/section/${activeStep}/5`,
         null
       );
     }
