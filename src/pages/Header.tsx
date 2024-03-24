@@ -14,7 +14,7 @@ function Header() {
   const navigate = useNavigate();
   return (
     <section
-      className={`sticky top-0 z-20 w-full border-b bg-transparent py-5 transition-all duration-300`}
+      className={`sticky top-0 z-20 w-full border-b bg-white py-5 transition-all duration-300`}
     >
       <div className="container mx-auto flex justify-between">
         <div>

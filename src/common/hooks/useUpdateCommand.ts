@@ -22,11 +22,8 @@ const useUpdateCommand = <T>() => {
       .put(url, body, options)
       .then((response) => {
         setData(response.data);
-        console.log(response);
       })
       .catch((error) => {
-        console.log(error);
-
         if (axios.isAxiosError(error)) {
           if (error.response) {
             if (error.response.data.errors) {

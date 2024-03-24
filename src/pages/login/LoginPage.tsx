@@ -38,9 +38,6 @@ const LoginPage: React.FC<LoginProps> = () => {
     executeCommand: executePostCommand,
   } = useCommand<any>();
 
-  console.log(userLoginResponseData);
-  console.log(userLoginResponseMessage);
-
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -60,7 +57,6 @@ const LoginPage: React.FC<LoginProps> = () => {
       loginRequestModel.Email = loginInputState.UserName;
       loginRequestModel.Password = encryptPassword.toString();
       loginRequestModel.RequestFrom = 'Web';
-      console.log(loginRequestModel);
       executePostCommand(
         process.env.REACT_APP_BASE_URL + '/Auth_V2/UserLogin',
 

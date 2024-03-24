@@ -21,13 +21,9 @@ const useQuery = <T>() => {
     axios
       .get(url, options)
       .then((response) => {
-        console.log(response);
-
         setData(response.data);
       })
       .catch((error) => {
-        console.log(error);
-
         if (axios.isAxiosError(error)) {
           if (error.response) {
             setError(error.response?.statusText);

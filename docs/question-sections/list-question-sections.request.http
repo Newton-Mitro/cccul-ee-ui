@@ -1,6 +1,6 @@
 
 ### Get Authenticated User Request
 # @name authUser
-GET  http://localhost:8000/api/question-sections
+GET http://172.16.0.3:8080/api/question-sections
 Content-Type: application/json
 Accept: application/json

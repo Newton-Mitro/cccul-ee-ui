@@ -8,7 +8,6 @@ function useLoggedInUser() {
 
   // get user
   useEffect(() => {
-    console.log(token);
     if (token) {
       fetch(`${''}/api/user/me`, {
         method: 'GET',

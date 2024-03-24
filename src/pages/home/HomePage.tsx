@@ -47,25 +47,20 @@ function HomePage() {
     executeQuery: executeGetSectionData,
   } = useQuery<any>();
 
-  console.log(examCountData?.count, currentExamData?.max_exam_can_take);
-  console.log(examCountData);
-  console.log(sectionData);
-  console.log(perviousExamData);
-
   useEffect(() => {
-    executeGetCurrentExam('http://localhost:8000/api/active_exam', null);
-    executeGetSectionData('http://localhost:8000/api/question-sections', null);
+    executeGetCurrentExam('http://172.16.0.3:8080/api/active_exam', null);
+    executeGetSectionData('http://172.16.0.3:8080/api/question-sections', null);
   }, []);
 
   useEffect(() => {
     if (currentExamData) {
       executeGetExamCount(
-        `http://localhost:8000/api/employee-exams/count/${authUser?.EmployeeCode}/${currentExamData.id}`,
+        `http://172.16.0.3:8080/api/employee-exams/count/${authUser?.EmployeeCode}/${currentExamData.id}`,
         null
       );
 
       executeGetPreviousExam(
-        ` http://localhost:8000/api/employee-exams/${authUser?.EmployeeCode}}`,
+        ` http://172.16.0.3:8080/api/employee-exams/${authUser?.EmployeeCode}}`,
         null
       );
     }

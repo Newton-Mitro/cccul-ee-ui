@@ -1,7 +1,7 @@
 
 ### Get Authenticated User Request
 # @name authUser
-POST  http://localhost:8000/api/question-banks
+POST  http://172.16.0.3:8080/api/question-banks
 Content-Type: application/json
 Accept: application/json
 
