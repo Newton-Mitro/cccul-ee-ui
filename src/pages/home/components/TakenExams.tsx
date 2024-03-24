@@ -3,8 +3,6 @@ interface TakenExamsProps {
 }
 
 const TakenExams: React.FC<TakenExamsProps> = ({ previousExams }) => {
-  console.log(previousExams);
-
   return (
     <div className="my-6">
       <h1 className="text-xl font-bold">Previous Taken Exams</h1>

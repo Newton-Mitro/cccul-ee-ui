@@ -19,7 +19,6 @@ const SingleOption: React.FC<SingleOptionProps> = ({
         name={option?.question_bank_id + index}
         onChange={() => {
           updateOptionsState(option, option?.question_bank_id);
-          console.log(option);
         }}
       />
       <label htmlFor="Choice1">{option?.option_text}</label>

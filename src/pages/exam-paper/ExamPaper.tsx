@@ -12,8 +12,6 @@ function ExamPaper() {
 
   const [optionsState, setOptionsState] = React.useState<any[]>([]);
 
-  // console.log(optionsState);
-
   const updateOptionsState = (selectedOption: any, index: number) => {
     optionsState[index] = {
       ...optionsState[index],
