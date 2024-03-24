@@ -1,4 +1,5 @@
 import * as React from 'react';
+import SingleOption from './SingleOption';
 
 interface ExamOptionsProps {
   options: any;
@@ -13,18 +14,12 @@ const ExamOptions: React.FC<ExamOptionsProps> = ({
     <div className="flex flex-col gap-2">
       {options?.map((option: any, index: number) => {
         return (
-          <div className="space-x-4">
-            <input
-              type="radio"
-              id={option?.question_bank_id}
-              name={option?.question_bank_id}
-              value={option?.question_bank_id}
-              onChange={() => {
-                updateOptionsState(option, option?.question_bank_id);
-                console.log(option);
-              }}
+          <div className="">
+            <SingleOption
+              key={option?.question_bank_id}
+              option={option}
+              updateOptionsState={updateOptionsState}
             />
-            <label htmlFor="Choice1">{option?.option_text}</label>
           </div>
         );
       })}

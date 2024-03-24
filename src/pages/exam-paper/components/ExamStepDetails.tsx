@@ -1,5 +1,5 @@
 import Loading from 'common/components/Loading';
-import useCommand from 'common/hooks/useCommand';
+import useCommand2 from 'common/hooks/useCommand2';
 import useQuery from 'common/hooks/useQuery';
 import * as React from 'react';
 import ExamCompleted from './ExamCompleted';
@@ -36,8 +36,11 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
-  const { data, setData, loading, error, setError, executeCommand } =
-    useCommand<any>();
+  const { data, status, setData, loading, error, setError, executeCommand } =
+    useCommand2<any>();
+
+  console.log(status);
+  console.log(data);
 
   const handleSubmit = () => {
     const mappedValues = optionsState.map((option: any) => {
@@ -66,8 +69,6 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
         (option: any) => option !== undefined
       ),
     };
-
-    console.log(JSON.stringify(application));
 
     executeCommand(
       'http://172.16.0.3:8080/api/answer-sheets',
@@ -100,7 +101,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
 
   return (
     <div className="flex flex-col">
-      <Loading isLoading={loading} />
+      <Loading isLoading={loading || questionsDataLoading} />
       <ExamCompleted
         isOpen={data ? true : false}
         data={data}
@@ -111,11 +112,13 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
       <h1 className="pb-4 text-center text-xl">{section?.section_title}</h1>
       {questionsData?.map((question: any, index: number) => {
         return (
-          <ExamQuestions
-            index={index + 1}
-            question={question}
-            updateOptionsState={updateOptionsState}
-          />
+          <div className="" key={index}>
+            <ExamQuestions
+              index={index + 1}
+              question={question}
+              updateOptionsState={updateOptionsState}
+            />
+          </div>
         );
       })}
       <div className="mb-10 flex justify-center">
