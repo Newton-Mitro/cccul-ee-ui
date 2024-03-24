@@ -14,13 +14,12 @@ const ExamOptions: React.FC<ExamOptionsProps> = ({
     <div className="flex flex-col gap-2">
       {options?.map((option: any, index: number) => {
         return (
-          <div className="">
-            <SingleOption
-              key={option?.question_bank_id}
-              option={option}
-              updateOptionsState={updateOptionsState}
-            />
-          </div>
+          <SingleOption
+            key={option?.question_bank_id + index}
+            index={index}
+            option={option}
+            updateOptionsState={updateOptionsState}
+          />
         );
       })}
     </div>

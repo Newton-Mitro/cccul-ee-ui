@@ -39,8 +39,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   const { data, status, setData, loading, error, setError, executeCommand } =
     useCommand2<any>();
 
-  console.log(status);
-  console.log(data);
+  console.log(section);
 
   const handleSubmit = () => {
     const mappedValues = optionsState.map((option: any) => {
@@ -109,16 +108,17 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
           setData(null);
         }}
       />
-      <h1 className="pb-4 text-center text-xl">{section?.section_title}</h1>
+      <h1 className="pb-4 text-center text-xl">
+        {section[activeStep - 1].section_title}
+      </h1>
       {questionsData?.map((question: any, index: number) => {
         return (
-          <div className="" key={index}>
-            <ExamQuestions
-              index={index + 1}
-              question={question}
-              updateOptionsState={updateOptionsState}
-            />
-          </div>
+          <ExamQuestions
+            key={index}
+            index={index + 1}
+            question={question}
+            updateOptionsState={updateOptionsState}
+          />
         );
       })}
       <div className="mb-10 flex justify-center">

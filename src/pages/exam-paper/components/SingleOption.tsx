@@ -1,11 +1,13 @@
 import * as React from 'react';
 
 interface SingleOptionProps {
+  index: any;
   option: any;
   updateOptionsState: any;
 }
 
 const SingleOption: React.FC<SingleOptionProps> = ({
+  index,
   option,
   updateOptionsState,
 }) => {
@@ -13,8 +15,8 @@ const SingleOption: React.FC<SingleOptionProps> = ({
     <div className="space-x-4">
       <input
         type="radio"
-        id={option?.question_bank_id}
-        name={option?.question_bank_id}
+        id={option?.question_bank_id + index}
+        name={option?.question_bank_id + index}
         onChange={() => {
           updateOptionsState(option, option?.question_bank_id);
           console.log(option);

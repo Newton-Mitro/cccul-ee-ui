@@ -60,7 +60,7 @@ function HomePage() {
       );
 
       executeGetPreviousExam(
-        ` http://172.16.0.3:8080/api/employee-exams/${authUser?.EmployeeCode}}`,
+        `http://172.16.0.3:8080/api/employee-exams/${authUser?.EmployeeCode}`,
         null
       );
     }
@@ -77,7 +77,9 @@ function HomePage() {
         }
       />
       <UserProfile user={authUser} />
-      {perviousExamData?.length > 0 && <TakenExams user={authUser} />}
+      {perviousExamData && perviousExamData.length > 0 && (
+        <TakenExams previousExams={perviousExamData} />
+      )}
 
       <CurrentExam
         currentExam={currentExamData}

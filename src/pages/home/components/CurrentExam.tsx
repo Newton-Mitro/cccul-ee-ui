@@ -33,7 +33,9 @@ const CurrentExam: React.FC<CurrentExamProps> = ({
               navigate('/auth/exam-paper');
             }}
           >
-            {`Take ${currentExam?.exam_title}`}
+            {`Take ${
+              currentExam?.exam_title ? currentExam?.exam_title : 'exam'
+            }`}
           </button>
         </div>
       </div>
