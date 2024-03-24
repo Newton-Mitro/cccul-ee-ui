@@ -56,7 +56,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
       if (option !== undefined) {
         return {
           employee_code: employee_code,
-          employee_exam_id: employee_exam_id,
+          id: employee_exam_id,
           exam_id: exam_id,
           question_bank_id: option?.question_bank_id,
           question_option_id: option?.id,
@@ -79,6 +79,8 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
         (option: any) => option !== undefined
       ),
     };
+
+    console.log(JSON.stringify(application));
 
     executeCommand(
       'http://localhost:8000/api/answer-sheets',

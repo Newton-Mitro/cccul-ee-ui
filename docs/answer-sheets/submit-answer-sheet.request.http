@@ -5,4 +5,60 @@ POST  http://localhost:8000/api/answer-sheets
 Content-Type: application/json
 Accept: application/json
 
-{"employee_exam_id":1711265676149,"emp_code_exam_id_exam_num":"1093_1_1","exam_id":1,"employee_code":"1093","exam_num":1,"total_questions":10,"correct_answers":1,"wrong_answers":9,"submitted_answers":[{"employee_code":"1093","employee_exam_id":1711265676149,"exam_id":1,"question_bank_id":1,"question_option_id":3,"option_text":"৮ প্রকার                                ","is_correct":true},{"employee_code":"1093","employee_exam_id":1711265676149,"exam_id":1,"question_bank_id":6,"question_option_id":22,"option_text":" ২০০০ টাকা","is_correct":true},{"employee_code":"1093","employee_exam_id":1711265676149,"exam_id":1,"question_bank_id":7,"question_option_id":26,"option_text":"৫০%","is_correct":true}]}
+{
+  "employee_exam_id": 1711301328461,
+  "emp_code_exam_id_exam_num": "1093_1_1",
+  "exam_id": 1,
+  "employee_code": "1093",
+  "exam_num": 1,
+  "total_questions": 10,
+  "correct_answers": 5,
+  "wrong_answers": 5,
+  "submitted_answers": [
+    {
+      "employee_code": "1093",
+      "employee_exam_id": 1711301328461,
+      "exam_id": 1,
+      "question_bank_id": 7,
+      "question_option_id": 26,
+      "option_text": "৫০%",
+      "is_correct": 1
+    },
+    {
+      "employee_code": "1093",
+      "employee_exam_id": 1711301328461,
+      "exam_id": 1,
+      "question_bank_id": 9,
+      "question_option_id": 34,
+      "option_text": "৬ মাস",
+      "is_correct": 1
+    },
+    {
+      "employee_code": "1093",
+      "employee_exam_id": 1711301328461,
+      "exam_id": 1,
+      "question_bank_id": 11,
+      "question_option_id": 41,
+      "option_text": "১০%                                 ",
+      "is_correct": 1
+    },
+    {
+      "employee_code": "1093",
+      "employee_exam_id": 1711301328461,
+      "exam_id": 1,
+      "question_bank_id": 13,
+      "question_option_id": 49,
+      "option_text": "২০০ টাকা                             ",
+      "is_correct": 1
+    },
+    {
+      "employee_code": "1093",
+      "employee_exam_id": 1711301328461,
+      "exam_id": 1,
+      "question_bank_id": 14,
+      "question_option_id": 53,
+      "option_text": " ৭০%                                 ",
+      "is_correct": 1
+    }
+  ]
+}
