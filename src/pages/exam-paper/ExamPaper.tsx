@@ -3,22 +3,12 @@ import AuthUserContext, {
   AuthUserContextType,
 } from 'common/context/AuthUserContext';
 import useQuery from 'common/hooks/useQuery';
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import ExamStepDetails from './components/ExamStepDetails';
 
 function ExamPaper() {
   const { authUser } = useContext(AuthUserContext) as AuthUserContextType;
   const empExamId = Date.now();
-
-  const [optionsState, setOptionsState] = React.useState<any[]>([]);
-
-  const updateOptionsState = (selectedOption: any, index: number) => {
-    optionsState[index] = {
-      ...optionsState[index],
-      ...selectedOption,
-    };
-    setOptionsState([...optionsState]);
-  };
 
   const {
     loading: currentExamDataLoading,
@@ -79,8 +69,6 @@ function ExamPaper() {
           employee_code={authUser?.EmployeeCode}
           exam_num={examCountData?.count}
           total_questions={10}
-          optionsState={optionsState}
-          updateOptionsState={updateOptionsState}
         />
       )}
     </div>

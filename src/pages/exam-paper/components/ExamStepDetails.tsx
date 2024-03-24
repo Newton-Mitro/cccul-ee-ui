@@ -1,4 +1,7 @@
 import Loading from 'common/components/Loading';
+import AuthUserContext, {
+  AuthUserContextType,
+} from 'common/context/AuthUserContext';
 import useCommand2 from 'common/hooks/useCommand2';
 import useQuery from 'common/hooks/useQuery';
 import * as React from 'react';
@@ -16,8 +19,6 @@ interface ExamStepDetailsProps {
   employee_code: any;
   exam_num: number;
   total_questions: number;
-  optionsState: any;
-  updateOptionsState: any;
 }
 
 const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
@@ -29,11 +30,23 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   employee_code,
   exam_num,
   total_questions,
-  optionsState,
-  updateOptionsState,
 }) => {
   const [activeStep, setActiveStep] = React.useState(1);
   const navigate = useNavigate();
+  const { authUser } = React.useContext(AuthUserContext) as AuthUserContextType;
+
+  const [optionsState, setOptionsState] = React.useState<any[]>([]);
+  const [time, setTime] = React.useState<any>(
+    Date.now() + section[activeStep - 1].time_for_section
+  );
+
+  const updateOptionsState = (selectedOption: any, index: number) => {
+    optionsState[index] = {
+      ...optionsState[index],
+      ...selectedOption,
+    };
+    setOptionsState([...optionsState]);
+  };
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -70,6 +83,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
       employee_exam_id: employee_exam_id,
       emp_code_exam_id_exam_num: emp_code_exam_id_exam_num,
       exam_id: exam_id,
+      name: authUser?.UserName,
       employee_code: employee_code,
       exam_num: exam_num,
       total_questions: total_questions,
@@ -79,8 +93,6 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
         (option: any) => option !== undefined
       ),
     };
-
-    console.log(JSON.stringify(application));
 
     executeCommand(
       'http://localhost:8000/api/answer-sheets',
@@ -127,33 +139,21 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
           {section[activeStep - 1].section_title}
         </h1>
 
-        {activeStep === 1 && (
-          <Countdown
-            date={Date.now() + section[activeStep - 1].time_for_section}
-            className="text-2xl font-bold text-red-900"
-            onComplete={() => {
+        <Countdown
+          date={time}
+          className="text-2xl font-bold text-red-900"
+          onTick={(timeObj) => {
+            if (timeObj.seconds === 1) {
               if (activeStep === sectionLength) {
                 handleSubmit();
               } else {
                 handleNext();
+                setTime(Date.now() + section[activeStep].time_for_section);
               }
-            }}
-          ></Countdown>
-        )}
-
-        {activeStep === 2 && (
-          <Countdown
-            date={Date.now() + section[activeStep - 1].time_for_section}
-            className="text-2xl font-bold text-red-900"
-            onComplete={() => {
-              if (activeStep === sectionLength) {
-                handleSubmit();
-              } else {
-                handleNext();
-              }
-            }}
-          ></Countdown>
-        )}
+            }
+          }}
+          onComplete={(obj) => {}}
+        ></Countdown>
       </div>
 
       {questionsData?.map((question: any, index: number) => {
