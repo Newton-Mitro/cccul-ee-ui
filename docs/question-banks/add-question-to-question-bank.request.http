@@ -6,32 +6,28 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "id": 1711299278109,
+  "id": 1711299278107,
   "question_text": "My Question",
   "question_section_id": 1,
   "active": true,
   "question_options": [
     {
-        "id": 1,
-        "question_bank_id": 1711299278109,
+        "question_bank_id": 1711299278107,
         "option_text": "Option One",
         "is_correct": true
     },
     {
-        "id": 2,
-        "question_bank_id": 1711299278109,
+        "question_bank_id": 1711299278107,
         "option_text": "Option Two",
         "is_correct": false
     },
     {
-        "id": 3,
-        "question_bank_id": 1711299278109,
+        "question_bank_id": 1711299278107,
         "option_text": "Option Three",
         "is_correct": false
     },
     {
-        "id": 4,
-        "question_bank_id": 1711299278109,
+        "question_bank_id": 1711299278107,
         "option_text": "Option Four",
         "is_correct": false
     }

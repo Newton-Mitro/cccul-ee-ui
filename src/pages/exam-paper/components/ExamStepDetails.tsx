@@ -69,7 +69,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
       if (option !== undefined) {
         return {
           employee_code: employee_code,
-          id: employee_exam_id,
+          employee_exam_id: employee_exam_id,
           exam_id: exam_id,
           question_bank_id: option?.question_bank_id,
           question_option_id: option?.id,
@@ -80,7 +80,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
     });
 
     const application = {
-      employee_exam_id: employee_exam_id,
+      id: employee_exam_id,
       emp_code_exam_id_exam_num: emp_code_exam_id_exam_num,
       exam_id: exam_id,
       name: authUser?.UserName,
@@ -94,6 +94,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
       ),
     };
 
+    console.log(JSON.stringify(application));
     executeCommand(
       'http://localhost:8000/api/answer-sheets',
       JSON.stringify(application),
