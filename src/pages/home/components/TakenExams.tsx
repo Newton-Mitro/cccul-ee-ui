@@ -13,6 +13,7 @@ const TakenExams: React.FC<TakenExamsProps> = ({ previousExams }) => {
               <th className="px-4">Exam Id</th>
               <th className="px-4">Exam Number</th>
               <th className="px-4">Employee Code</th>
+              <th className="px-4">Employee Name</th>
               <th className="px-4">Total Question</th>
               <th className="px-4">Correct Answer</th>
               <th className="px-4">Wrong Answer</th>
@@ -25,6 +26,7 @@ const TakenExams: React.FC<TakenExamsProps> = ({ previousExams }) => {
                   <td className="px-4">{exam?.exam_id}</td>
                   <td className="px-4">{exam?.exam_num}</td>
                   <td className="px-4">{exam?.employee_code}</td>
+                  <td className="px-4">{exam?.name}</td>
                   <td className="px-4">{exam?.total_questions}</td>
                   <td className="px-4">{exam?.correct_answers}</td>
                   <td className="px-4">{exam?.wrong_answers}</td>
