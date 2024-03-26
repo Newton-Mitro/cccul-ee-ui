@@ -90,7 +90,6 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
       ),
     };
 
-    console.log(JSON.stringify(application));
     executeCommand(
       'http://localhost:8000/api/answer-sheets',
       JSON.stringify(application),
@@ -112,8 +111,6 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   } = useQuery<any>();
 
   React.useEffect(() => {
-    console.log(activeStep);
-
     if (activeStep !== 0 && sections.length > 0) {
       executeGetQuestionsData(
         `http://localhost:8000/api/question-banks/section/${activeStep}/${
