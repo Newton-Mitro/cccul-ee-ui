@@ -11,7 +11,7 @@ import ExamCompleted from './ExamCompleted';
 import ExamQuestions from './ExamQuestions';
 
 interface ExamStepDetailsProps {
-  section: any;
+  sections: any;
   sectionLength: number;
   employee_exam_id: number;
   emp_code_exam_id_exam_num: any;
@@ -22,7 +22,7 @@ interface ExamStepDetailsProps {
 }
 
 const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
-  section,
+  sections,
   sectionLength,
   employee_exam_id,
   emp_code_exam_id_exam_num,
@@ -34,11 +34,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   const [activeStep, setActiveStep] = React.useState(1);
   const navigate = useNavigate();
   const { authUser } = React.useContext(AuthUserContext) as AuthUserContextType;
-
   const [optionsState, setOptionsState] = React.useState<any[]>([]);
-  const [time, setTime] = React.useState<any>(
-    Date.now() + section[activeStep - 1].time_for_section
-  );
 
   const updateOptionsState = (selectedOption: any, index: number) => {
     optionsState[index] = {
@@ -116,15 +112,17 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   } = useQuery<any>();
 
   React.useEffect(() => {
-    if (activeStep !== 0) {
+    console.log(activeStep);
+
+    if (activeStep !== 0 && sections.length > 0) {
       executeGetQuestionsData(
         `http://localhost:8000/api/question-banks/section/${activeStep}/${
-          section?.question_for_section ? section?.question_for_section : 5
+          sections[activeStep - 1]?.question_for_section
         }`,
         null
       );
     }
-  }, [activeStep]);
+  }, [activeStep, sections]);
 
   return (
     <div className="flex flex-col">
@@ -139,24 +137,40 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
       />
       <div className="pb-4 text-center">
         <h1 className="text-center text-xl">
-          {section[activeStep - 1].section_title}
+          {sections[activeStep - 1].section_title}
         </h1>
 
-        <Countdown
-          date={time}
-          className="text-2xl font-bold text-red-900"
-          onTick={(timeObj) => {
-            if (timeObj.seconds === 1) {
-              if (activeStep === sectionLength) {
-                handleSubmit();
-              } else {
-                handleNext();
-                setTime(Date.now() + section[activeStep].time_for_section);
+        {activeStep % 2 === 0 ? (
+          <Countdown
+            date={Date.now() + sections[activeStep - 1].time_for_section}
+            className="text-2xl font-bold text-red-900"
+            onTick={(timeObj) => {
+              if (timeObj.seconds === 1) {
+                if (activeStep === sectionLength) {
+                  handleSubmit();
+                } else {
+                  handleNext();
+                }
               }
-            }
-          }}
-          onComplete={(obj) => {}}
-        ></Countdown>
+            }}
+            onComplete={(obj) => {}}
+          />
+        ) : (
+          <Countdown
+            date={Date.now() + sections[activeStep - 1].time_for_section}
+            className="text-2xl font-bold text-red-900"
+            onTick={(timeObj) => {
+              if (timeObj.seconds === 1) {
+                if (activeStep === sectionLength) {
+                  handleSubmit();
+                } else {
+                  handleNext();
+                }
+              }
+            }}
+            onComplete={(obj) => {}}
+          />
+        )}
       </div>
 
       {questionsData?.map((question: any, index: number) => {

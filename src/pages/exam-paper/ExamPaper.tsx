@@ -37,6 +37,16 @@ function ExamPaper() {
     executeQuery: executeGetExamCount,
   } = useQuery<any>();
 
+  let question_for_sections = 0;
+  if (sectionData) {
+    sectionData?.forEach((element: any) => {
+      if (element !== undefined) {
+        question_for_sections =
+          question_for_sections + element.question_for_section;
+      }
+    });
+  }
+
   useEffect(() => {
     if (currentExamData) {
       executeGetExamCount(
@@ -61,14 +71,14 @@ function ExamPaper() {
       <h1 className="pt-5 text-center text-3xl font-bold">Exam Paper</h1>
       {sectionData && authUser && examCountData && currentExamData && (
         <ExamStepDetails
-          section={sectionData}
+          sections={sectionData}
           sectionLength={sectionData?.length}
           employee_exam_id={empExamId}
           emp_code_exam_id_exam_num={`${authUser?.EmployeeCode}_${currentExamData?.id}_${examCountData?.count}`}
           exam_id={currentExamData?.id}
           employee_code={authUser?.EmployeeCode}
           exam_num={examCountData?.count}
-          total_questions={10}
+          total_questions={question_for_sections}
         />
       )}
     </div>
