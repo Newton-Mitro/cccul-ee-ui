@@ -54,8 +54,8 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   const handleSubmit = () => {
     let totalCorrectAns = 0;
     optionsState?.forEach((element: any) => {
-      if (element !== undefined) {
-        if (element?.is_correct) {
+      if (element) {
+        if (element.is_correct) {
           totalCorrectAns = totalCorrectAns + 1;
         }
       }
