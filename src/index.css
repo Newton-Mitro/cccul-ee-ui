@@ -27,14 +27,6 @@
     --theme-on-disabled: #f3f3f3;
   }
 
-  * {
-    scroll-behavior: smooth;
-    scrollbar-color: #0a4c95 #c2d2e4;
-    scrollbar-width: 6px;
-  }
-
-  /* Chrome, Edge, and Safari */
-
   *::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -50,22 +42,4 @@
     border-radius: 1px;
     border: 1px solid var(--theme-primary);
   }
-
-  .text-sideways {
-    writing-mode: tb-rl;
-  }
-}
-
-.sidebar-menu.active {
-  @apply bg-onSurface font-semibold text-red-400;
-}
-
-.active.main-menu {
-  @apply border-b border-red-400 font-bold;
-}
-
-.ck {
-  background-color: var(--theme-on-surface) !important;
-  border-color: var(--theme-surface) !important;
-  color: var(--theme-surface) !important;
 }
