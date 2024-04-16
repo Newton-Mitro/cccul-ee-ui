@@ -13,7 +13,7 @@ function ResultPage() {
   } = useQuery<any>();
 
   useEffect(() => {
-    executeGetPreviousExam('http://localhost:8000/api/employee-exams', null);
+    executeGetPreviousExam('http://10.77.77.22:8080/api/employee-exams', null);
   }, []);
 
   return (

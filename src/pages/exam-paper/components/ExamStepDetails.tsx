@@ -91,7 +91,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
     };
 
     executeCommand(
-      'http://localhost:8000/api/answer-sheets',
+      'http://10.77.77.22:8080/api/answer-sheets',
       JSON.stringify(application),
       {
         headers: {
@@ -113,7 +113,7 @@ const ExamStepDetails: React.FC<ExamStepDetailsProps> = ({
   React.useEffect(() => {
     if (activeStep !== 0 && sections.length > 0) {
       executeGetQuestionsData(
-        `http://localhost:8000/api/question-banks/section/${activeStep}/${
+        `http://10.77.77.22:8080/api/question-banks/section/${activeStep}/${
           sections[activeStep - 1]?.question_for_section
         }`,
         null

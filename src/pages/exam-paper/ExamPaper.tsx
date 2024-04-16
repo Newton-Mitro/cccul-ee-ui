@@ -50,15 +50,18 @@ function ExamPaper() {
   useEffect(() => {
     if (currentExamData) {
       executeGetExamCount(
-        `http://localhost:8000/api/employee-exams/count/${authUser?.EmployeeCode}/${currentExamData.id}`,
+        `http://10.77.77.22:8080/api/employee-exams/count/${authUser?.EmployeeCode}/${currentExamData.id}`,
         null
       );
     }
   }, [currentExamData, authUser]);
 
   useEffect(() => {
-    executeGetCurrentExam('http://localhost:8000/api/active_exam', null);
-    executeGetSectionData('http://localhost:8000/api/question-sections', null);
+    executeGetCurrentExam('http://10.77.77.22:8080/api/active_exam', null);
+    executeGetSectionData(
+      'http://10.77.77.22:8080/api/question-sections',
+      null
+    );
   }, []);
 
   return (
